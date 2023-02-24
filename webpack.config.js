@@ -30,9 +30,17 @@ module.exports = {
         use: ["style-loader", "css-loader"],
       },
       {
-        test: /\.(jpg|png|woff|woff2|eot|ttf|svg)$/, 
+        test: /\.(png|woff|woff2|eot|ttf|svg)$/, 
         loader: "url-loader",
         options: { limit: false },
+      },
+            {
+        test: /\.(jpg|gif)$/i,
+        loader: 'file-loader',
+        options: {
+          name: '[path][name].[ext]',
+          esModule: false,
+        },
       },
     ],
   },
